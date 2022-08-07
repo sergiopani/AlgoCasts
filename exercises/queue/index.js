@@ -8,6 +8,23 @@
 //     q.add(1);
 //     q.remove(); // returns 1;
 
-class Queue {}
+class Queue {
+    //The storage of data
+    //The constructor will automatically call when we call a new queue
+    constructor(){
+        this.data = [];
+    }
+
+    add(record){
+        //add the data to the front
+        this.data.unshift(record);
+    }
+
+    remove(record){
+        //Remove the record of the end of the cue and returning to work with it
+        return this.data.pop(record);
+    }
+
+}
 
 module.exports = Queue;

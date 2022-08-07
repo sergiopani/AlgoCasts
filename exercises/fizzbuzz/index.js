@@ -12,6 +12,23 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+
+    for(let i = 0; i<= n; i++){
+        //If the number is multiple of 3 and 5--> Print out fizz
+        if(i % 3 === 0 && i % 5 === 0){
+            console.log('fizzbuzz');
+        }else if(i % 3 === 0){
+            //Is the number multiple of trhee
+            console.log('fizz');
+        }else if(i%5===0){
+            console.log('buzz');
+        }else{
+            console.log(i);
+        }       
+        
+    }
+
+}
 
 module.exports = fizzBuzz;

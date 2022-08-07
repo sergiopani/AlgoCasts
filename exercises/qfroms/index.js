@@ -14,6 +14,49 @@
 
 const Stack = require('./stack');
 
-class Queue {}
+class Queue {
+    //Create 2 stacks
+    constructor(){
+        this.first = new Stack();
+        this.second = new Stack();
+    }
+
+    add(record){
+        this.first.push(record);
+        
+    }
+    //Remove method to get the first element in the stack A
+    //Pop method from stack A and push them to stack B so if we pop stack we have the first of STACK A
+    remove(){
+        //As long is there a value 
+        while(this.first.peek){            
+            this.second.push(this.first.pop());
+        }//Well the loop has done means that this.first is clean
+
+        const record = this.second.pop();
+
+        //Restore the state of the first stack
+        while(this.second.peek){
+            this.first.push(this.second.pop());
+        }
+
+        return record;
+    }
+
+    peek(){
+        while(this.first.peek()){
+            this.second.push(this.first.pop());
+        }
+
+        const record = this.second.peek();
+
+        while(this.second.peek()){
+            this.first.push(this.second.pop());
+        }
+
+        return record;
+    }
+
+}
 
 module.exports = Queue;
